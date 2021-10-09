@@ -67,5 +67,13 @@ agentName = re.compile('^Agent \w+')
 newName = agentName.sub('替换name', name)  # 替换name gave the secret documents to Agent Bob.
 print(newName)
 import os
-str1 = os.path.join('usr', 'bin', 'spam')
+
+str1 = os.path.join('usr', 'bin', 'spam')  # usr\bin\spam
 print(str1)
+
+# 获取当前路径
+str2 = os.getcwd()
+print(str2)
+# # 修改当前工作路径
+# str3 = os.chdir(r'E:\workspaces\quickPython')
+# print(str3)
