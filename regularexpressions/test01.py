@@ -74,6 +74,54 @@ print(str1)
 # 获取当前路径
 str2 = os.getcwd()
 print(str2)
+
 # # 修改当前工作路径
 # str3 = os.chdir(r'E:\workspaces\quickPython')
 # print(str3)
+
+# class Solution(object):
+#     def findRestaurant(self, list1: list, list2: list):
+#         """
+#         :type list1: List[str]
+#         :type list2: List[str]
+#         :rtype: List[str]
+#         """
+#         agreements = set(list1) & set(list2)
+#         return agreements
+#
+#
+# list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+# list2 = ["KFC", "Shogun", "Burger King"]
+# list3 = Solution().findRestaurant(list1, list2)
+# print(list3)
+import os
+
+from appium import webdriver
+import time
+
+# 接收参数
+from appium.webdriver.common.touch_action import TouchAction
+
+desired_caps = dict()
+
+# 平台的名字
+desired_caps["platformName"] = "Android"
+# 平台的版本
+desired_caps["platformVersion"] = "11"
+# 设备的名字
+desired_caps["deviceName"] = "b8b46013"
+# 操作的应用
+desired_caps["appPackage"] = "com.android.settings"
+# 操作的页面
+desired_caps["appActivity"] = ".MainSettings"
+# 设置中文编码
+desired_caps["unicodeKeyboard"] = True
+desired_caps["resetKeyboard"] = True
+desired_caps["automationName"] = 'UIAutomator2'
+# 执行
+driver = webdriver.Remote("http://localhost:4723/wd/hub", desired_caps)
+# 获取包名
+print(driver.current_package)
+# # 获取活动页名
+# print(driver.current_activity)
+driver.install_app('./app1.apk')
